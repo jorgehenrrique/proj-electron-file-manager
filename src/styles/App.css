@@ -1,0 +1,44 @@
+.App {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  color: var(--text-primary);
+  margin: 2rem 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 0.5rem;
+  text-align: center;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer a:hover {
+  color: var(--accent-hover);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .App {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+}

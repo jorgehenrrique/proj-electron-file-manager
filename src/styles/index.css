@@ -1,0 +1,27 @@
+:root {
+  /* Cores do tema escuro */
+  --bg-primary: #1a1b1e;
+  --bg-secondary: #2c2e33;
+  --text-primary: #e1e1e6;
+  --text-secondary: #a8a8b3;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --error: #ef4444;
+  --success: #22c55e;
+  --border: #383838;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-width: 320px;
+  min-height: 100vh;
+}
