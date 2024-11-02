@@ -30,8 +30,6 @@ export function TraderForm({ onSave, isRunning, initialConfig }: Props) {
     console.log('Enviando configurações:', config);
 
     onSave({ ...config, isRunning: true });
-
-    console.log('Configurações salvas com sucesso');
   };
 
   const handleStop = () => {

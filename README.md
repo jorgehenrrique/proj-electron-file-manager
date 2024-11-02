@@ -110,12 +110,9 @@ Aplicação desktop para gerenciamento automatizado de localizações de traders
 ## Scripts Disponíveis
 
 ```bash
-npm run dev           # Inicia o modo de desenvolvimento Vite
-npm run build        # Compila o projeto
-npm run electron:dev # Inicia o Electron em modo desenvolvimento
+npm run electron:dev    # Inicia o Electron em modo desenvolvimento
 npm run electron:preview # Visualiza a build do Electron
 npm run electron:build  # Gera o executável da aplicação
-npm run preview      # Visualiza a build do Vite
 ```
 
 ## Licença

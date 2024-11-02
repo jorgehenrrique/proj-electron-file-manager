@@ -4,6 +4,8 @@ import { TraderConfig, AppSettings } from '../../electron/shared/types';
 import { electronAPI } from '../services/electron';
 import '../styles/TraderManager.css';
 
+const MAX_HISTORY_SIZE = 10;
+
 export function TraderManager() {
   const [settings, setSettings] = useState<AppSettings | null>(null);
   const [error, setError] = useState<string>('');
@@ -32,9 +34,17 @@ export function TraderManager() {
         clearTimeout(timerRef.current);
       }
 
+      // Busca as configurações atuais antes de atualizar
+      const currentSettings = await electronAPI.loadSettings();
+
+      // Mantém apenas os últimos MAX_HISTORY_SIZE registros do histórico existente
+      const limitedHistory = (currentSettings?.history || []).slice(
+        -MAX_HISTORY_SIZE
+      );
+
       const newSettings: AppSettings = {
         config, // Usa a configuração recebida
-        history: settings?.history || [], // Mantém o histórico existente
+        history: limitedHistory, // Mantém o histórico existente
       };
 
       await electronAPI.saveSettings(newSettings);
@@ -59,15 +69,21 @@ export function TraderManager() {
         newPath: newLocation,
       });
 
+      // Busca as configurações atuais antes de atualizar
+      const currentSettings = await electronAPI.loadSettings();
+
+      // Cria novo array de histórico mantendo apenas os últimos registros
+      const updatedHistory = [
+        ...(currentSettings?.history || []),
+        {
+          timestamp: new Date(),
+          location: newLocation,
+        },
+      ].slice(-MAX_HISTORY_SIZE); // Mantém apenas os últimos registros
+
       const updatedSettings = {
-        config: { ...config }, // Mantém as configurações atuais
-        history: [
-          ...(settings?.history || []),
-          {
-            timestamp: new Date(),
-            location: newLocation,
-          },
-        ],
+        config: { ...config },
+        history: updatedHistory,
       };
 
       await electronAPI.saveSettings(updatedSettings);
