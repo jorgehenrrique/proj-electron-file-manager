@@ -4,7 +4,7 @@ import { TraderConfig, AppSettings } from '../../electron/shared/types';
 import { electronAPI } from '../services/electron';
 import '../styles/TraderManager.css';
 
-const MAX_HISTORY_SIZE = 10;
+const MAX_HISTORY_SIZE = 50;
 
 export function TraderManager() {
   const [settings, setSettings] = useState<AppSettings | null>(null);
