@@ -49,8 +49,8 @@ export async function saveSettings(settings: AppSettings): Promise<void> {
     }
 
     // Log para debug
-    console.log('Salvando configurações em:', CONFIG_FILE);
-    console.log('Configurações:', settings);
+    // console.log('Salvando configurações em:', CONFIG_FILE);
+    // console.log('Configurações:', settings);
 
     // Se houver caminhos configurados, valida-os
     if (settings.config.scriptPath && settings.config.locationsPath) {

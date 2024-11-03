@@ -11,7 +11,7 @@ contextBridge.exposeInMainWorld('electron', {
       'update-location',
     ];
     if (validChannels.includes(channel)) {
-      console.log(`Invocando canal ${channel} com dados:`, data);
+      // console.log(`Invocando canal ${channel} com dados:`, data);
       return ipcRenderer.invoke(channel, data);
     }
     throw new Error(`Canal IPC não permitido: ${channel}`);

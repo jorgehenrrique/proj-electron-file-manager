@@ -27,7 +27,7 @@ export function TraderForm({ onSave, isRunning, initialConfig }: Props) {
     e.preventDefault();
 
     // Adicione logs para debug
-    console.log('Enviando configurações:', config);
+    // console.log('Enviando configurações:', config);
 
     onSave({ ...config, isRunning: true });
   };
